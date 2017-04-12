@@ -42,8 +42,8 @@
 ;; Find Executable Path on OS, ???
 (when (memq window-system '(ns))
   (exec-path-from-shell-initialize))        
-
-
+;; Close wellcome homepage
+(setq inhibit-startup-message -1)
 ;; Replace selection with newly inputed word
 (delete-selection-mode 1)
 ;; Set curs style

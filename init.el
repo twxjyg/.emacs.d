@@ -14,9 +14,12 @@
 		chinese-pyim-greatdict
                 ;; Auto-completion
                 company
+		company-irony
+		company-irony-c-headers
+		autopair
                 ;; Better Editor
                 hungry-delete
-		smex
+		helm
                 swiper
                 counsel
                 exec-path-from-shell
@@ -71,7 +74,16 @@
 
 ;; Open company mode
 (require 'company)
+(require 'company-irony-c-headers)
 (add-hook 'after-init-hook 'global-company-mode)
+
+;; Load with `irony-mode` as a grouped backend
+(eval-after-load 'company
+  '(add-to-list
+    'company-backends '(company-irony-c-headers company-irony)))
+;; open auto pair mode
+(require 'autopair)
+(autopair-global-mode)
 
 ;; Auto move curs to new window
 (require 'popwin)
@@ -79,12 +91,12 @@
 ;; use theme
 (load-theme 'solarized-dark 1)
 
-;; Open semx mode
-(smex-initialize)
-(global-set-key (kbd "M-x") 'smex)
-(global-set-key (kbd "M-X") 'smex-major-mode-commands)
-  ;; This is your old M-x.
-(global-set-key (kbd "C-c C-c M-x") 'execute-extended-command)
+;; open helm mode
+(require 'helm-config)
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(helm-mode 1)
 
 ;; 拼音输入法设置
 (require 'chinese-pyim)
@@ -95,7 +107,7 @@
   ;; 我使用全拼
 (setq pyim-default-scheme 'quanpin)
   ;; 选词框显示5个候选词
-(setq pyim-page-length 10)
+(setq pyim-page-length 6)
   ;; 全半角切换
   ;; 执行(pyim-punctuation-toggle)
   ;; 使用外置词库

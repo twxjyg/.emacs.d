@@ -1,2 +1,6 @@
 * Hack default emacs config
- 
+* Useful key-map
+1. 搜索当前光标下的字符串
+   M-s .
+2. emacs中的grep, 别忘了需要指定文件或加-r
+   M-x grep

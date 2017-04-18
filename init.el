@@ -13,11 +13,13 @@
 		chinese-pyim
 		chinese-pyim-greatdict
                 ;; Auto-completion
-                company
-		company-irony
-		company-irony-c-headers
+		auto-complete
+                ;; company
+		;; company-irony
+		;; company-irony-c-headers
 		autopair
                 ;; Better Editor
+		popwin
                 hungry-delete
 		helm
                 swiper
@@ -26,6 +28,7 @@
                 ;; Themes
                 monokai-theme
                 solarized-theme
+		atom-dark-theme
                 ) "Default packages")
 
  (setq package-selected-packages my/packages)
@@ -43,7 +46,7 @@
          (package-install pkg))))
 
 ;; Find Executable Path on OS, ???
-(when (memq window-system '(ns))
+(when (memq window-system '(mac ns))
   (exec-path-from-shell-initialize))        
 ;; Close wellcome homepage
 (setq inhibit-startup-message -1)
@@ -73,9 +76,13 @@
 (global-set-key (kbd "<f12>") 'open-init-file)
 
 ;; Open company mode
-(require 'company)
-(require 'company-irony-c-headers)
-(add-hook 'after-init-hook 'global-company-mode)
+;; (require 'company)
+;; (require 'company-irony-c-headers)
+;; (add-hook 'after-init-hook 'global-company-mode)
+
+;; Open auto-complete mode
+
+(ac-config-default)
 
 ;; Load with `irony-mode` as a grouped backend
 (eval-after-load 'company
@@ -89,7 +96,7 @@
 (require 'popwin)
 (popwin-mode 1)
 ;; use theme
-(load-theme 'solarized-dark 1)
+(load-theme 'atom-dark 1)
 
 ;; open helm mode
 (require 'helm-config)

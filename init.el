@@ -14,9 +14,6 @@
 		chinese-pyim-greatdict
                 ;; Auto-completion
 		auto-complete
-                ;; company
-		;; company-irony
-		;; company-irony-c-headers
 		autopair
                 ;; Better Editor
 		popwin
@@ -75,19 +72,11 @@
   (find-file "~/.emacs.d/init.el"))
 (global-set-key (kbd "<f12>") 'open-init-file)
 
-;; Open company mode
-;; (require 'company)
-;; (require 'company-irony-c-headers)
-;; (add-hook 'after-init-hook 'global-company-mode)
 
 ;; Open auto-complete mode
 
 (ac-config-default)
 
-;; Load with `irony-mode` as a grouped backend
-(eval-after-load 'company
-  '(add-to-list
-    'company-backends '(company-irony-c-headers company-irony)))
 ;; open auto pair mode
 (require 'autopair)
 (autopair-global-mode)

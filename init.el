@@ -72,9 +72,14 @@
   (find-file "~/.emacs.d/init.el"))
 (global-set-key (kbd "<f12>") 'open-init-file)
 
+(defun kill-current-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line 1))
+(global-set-key (kbd "M-k") 'kill-current-line)
 
 ;; Open auto-complete mode
-
+(require 'auto-complete-config)
 (ac-config-default)
 
 ;; open auto pair mode

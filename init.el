@@ -15,6 +15,7 @@
                 ;; Auto-completion
 		auto-complete
 		autopair
+		google-c-style
                 ;; Better Editor
 		popwin
                 hungry-delete
@@ -22,6 +23,7 @@
                 swiper
                 counsel
                 exec-path-from-shell
+		find-file-in-repository
                 ;; Themes
                 monokai-theme
                 solarized-theme
@@ -43,7 +45,7 @@
          (package-install pkg))))
 
 ;; Find Executable Path on OS, ???
-(when (memq window-system '(mac ns))
+(when (memq window-system '(mac x ns))
   (exec-path-from-shell-initialize))        
 ;; Close wellcome homepage
 (setq inhibit-startup-message -1)
@@ -78,6 +80,8 @@
   (kill-line 1))
 (global-set-key (kbd "M-k") 'kill-current-line)
 
+;; config quick find file
+(global-set-key (kbd "C-x f") 'find-file-in-repository)
 ;; Open auto-complete mode
 (require 'auto-complete-config)
 (ac-config-default)
@@ -85,6 +89,12 @@
 ;; open auto pair mode
 (require 'autopair)
 (autopair-global-mode)
+
+;; config google c/c++ style
+(require 'google-c-style)
+(add-hook 'c-mode-common-hook 'google-set-c-style)
+(add-hook 'c-mode-common-hook 'google-make-newline-indent)
+
 
 ;; Auto move curs to new window
 (require 'popwin)

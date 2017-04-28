@@ -16,6 +16,7 @@
 		auto-complete
 		autopair
 		google-c-style
+		yasnippet
                 ;; Better Editor
 		popwin
                 hungry-delete
@@ -83,8 +84,12 @@
 ;; config quick find file
 (global-set-key (kbd "C-x f") 'find-file-in-repository)
 ;; Open auto-complete mode
+(require 'auto-complete)
 (require 'auto-complete-config)
 (ac-config-default)
+
+(require 'yasnippet)
+(yas-global-mode 1)
 
 ;; open auto pair mode
 (require 'autopair)

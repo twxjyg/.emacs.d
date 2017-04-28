@@ -20,11 +20,13 @@
                 ;; Better Editor
 		popwin
                 hungry-delete
-		helm
                 swiper
                 counsel
                 exec-path-from-shell
 		find-file-in-repository
+		;; helm
+		helm
+		helm-gtags
 		;; git
 		magit
                 ;; Themes

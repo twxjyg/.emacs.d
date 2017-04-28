@@ -25,6 +25,8 @@
                 counsel
                 exec-path-from-shell
 		find-file-in-repository
+		;; git
+		magit
                 ;; Themes
                 monokai-theme
                 solarized-theme

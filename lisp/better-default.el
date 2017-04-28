@@ -13,6 +13,7 @@
 (global-hl-line-mode 1)
 ;; Open line number mode
 (global-linum-mode 1)
+(setq linum-format "%d ")
 ;; Close auto-backup, 'xxx.txt~ file'
 (setq make-backup-files nil)
 ;; close auto save files,because git is every where

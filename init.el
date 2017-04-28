@@ -1,88 +1,15 @@
-;; Add chinise elpa mirror and initialize package
-(when (>= emacs-major-version 24)
-     (require 'package)
-     (package-initialize)
-     (setq package-archives '(("gnu" . "http://elpa.emacs-china.org/gnu/")
-			      ("melpa" . "http://elpa.emacs-china.org/melpa/"))))
-;; cl - Common Lisp Extension
-(require 'cl)
+(package-initialize)
+(add-to-list 'load-path "~/.emacs.d/lisp/")
+(require 'init-packages)
+(require 'better-default)
+(require 'my-key-binds)
 
- ;; Add Packages
-(defvar my/packages '(
-		;; 拼音输入法和词库
-		chinese-pyim
-		chinese-pyim-greatdict
-                ;; Auto-completion
-		auto-complete
-		autopair
-		google-c-style
-		yasnippet
-                ;; Better Editor
-		popwin
-                hungry-delete
-		helm
-                swiper
-                counsel
-                exec-path-from-shell
-		find-file-in-repository
-                ;; Themes
-                monokai-theme
-                solarized-theme
-		atom-dark-theme
-                ) "Default packages")
-
- (setq package-selected-packages my/packages)
-
- (defun my/packages-installed-p ()
-     (loop for pkg in my/packages
-           when (not (package-installed-p pkg)) do (return nil)
-           finally (return t)))
-
- (unless (my/packages-installed-p)
-     (message "%s" "Refreshing package database...")
-     (package-refresh-contents)
-     (dolist (pkg my/packages)
-       (when (not (package-installed-p pkg))
-         (package-install pkg))))
-
-;; Find Executable Path on OS, ???
-(when (memq window-system '(mac x ns))
-  (exec-path-from-shell-initialize))        
-;; Close wellcome homepage
-(setq inhibit-startup-message -1)
-;; Replace selection with newly inputed word
-(delete-selection-mode 1)
-;; Set curs style
-(setq-default cursor-type 'bar)
-;; Close ugly toolbar UI
-(tool-bar-mode -1)
-;; Hight light current line
-(global-hl-line-mode 1)
-;; Open line number mode
-(global-linum-mode 1)
-;; Close auto-backup, 'xxx.txt~ file'
-(setq make-backup-files nil)
-;; Change font size
-(set-face-attribute 'default nil :height 140)
 ;; Open recentf mode
 (require 'recentf)
 (recentf-mode 1)
 (setq recentf-max-menu-item 10)
 
-;; Quick open init.el
-(defun open-init-file()
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
-(global-set-key (kbd "<f12>") 'open-init-file)
 
-(defun kill-current-line()
-  (interactive)
-  (move-beginning-of-line 1)
-  (kill-line 1))
-(global-set-key (kbd "M-k") 'kill-current-line)
-
-;; config quick find file
-(global-set-key (kbd "C-x f") 'find-file-in-repository)
 ;; Open auto-complete mode
 (require 'auto-complete)
 (require 'auto-complete-config)

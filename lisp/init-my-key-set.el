@@ -30,4 +30,4 @@
   (forward-line -1)
   (indent-according-to-mode))
 (global-set-key (kbd "M-<down>") 'move-line-down)
-(provide 'my-key-set)
+(provide 'init-my-key-set)

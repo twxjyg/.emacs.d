@@ -17,6 +17,7 @@
 		autopair
 		google-c-style
 		yasnippet
+		cpputils-cmake
                 ;; Better Editor
 		popwin
                 hungry-delete
@@ -33,6 +34,7 @@
                 monokai-theme
                 solarized-theme
 		atom-dark-theme
+		powerline
                 ) "Default packages")
 
  (setq package-selected-packages my/packages)

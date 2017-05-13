@@ -9,4 +9,7 @@
 (require 'popwin)
 (popwin-mode 1)
 
+(require 'powerline)
+(powerline-center-theme)
+
 (provide 'init-other-packages)

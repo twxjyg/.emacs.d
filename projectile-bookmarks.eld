@@ -1,1 +1,1 @@
-("~/.emacs.d/")
+("~/.emacs.d/" "~/Documents/bazel-ws/autoscrubber_console/" "~/Documents/bazel-ws/autoscrubber_gui/")

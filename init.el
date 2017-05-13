@@ -11,6 +11,7 @@
 (require 'init-helm)
 (require 'init-other-packages)
 (require 'init-projectile)
+(require 'init-cpputils-cmake)
 
 ;; use theme
 (load-theme 'atom-dark 1)

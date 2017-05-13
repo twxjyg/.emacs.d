@@ -10,10 +10,6 @@
   (kill-line 1))
 (global-set-key (kbd "M-k") 'kill-current-line)
 
-;; config quick find file
-(require 'find-file-in-repository)
-(global-set-key (kbd "C-x f") 'find-file-in-repository)
-
 (defun move-line-up ()
   "Move up the current line."
   (interactive)

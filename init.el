@@ -10,7 +10,7 @@
 (require 'init-google-c-style)
 (require 'init-helm)
 (require 'init-other-packages)
-
+(require 'init-projectile)
 
 ;; use theme
 (load-theme 'atom-dark 1)

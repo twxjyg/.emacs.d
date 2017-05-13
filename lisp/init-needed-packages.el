@@ -23,7 +23,7 @@
                 swiper
                 counsel
                 exec-path-from-shell
-		find-file-in-repository
+		projectile
 		;; helm
 		helm
 		helm-gtags
